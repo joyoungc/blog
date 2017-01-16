@@ -1,6 +1,6 @@
 ## [Tomcat] 톰캣에 파일 업로드 시 502 Bad Gateway 발생할때 고려할 점
 
-보통 파일 업로드 시 multipart/form-data 로 POST 방식으로 전송을 하게 되는데 
+보통 파일 업로드 시 `multipart/form-data` 로 POST 방식으로 전송을 하게 되는데 
 
 올리는 도중 아래와 같이 502 Bad Gateway를 응답받을 경우가 있다. 
 
