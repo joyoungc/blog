@@ -37,7 +37,7 @@
 - #### Step
   - 배치 작업(Job)에 대한 순차적인 처리 단계를 의미함
   - 단순하거나 복잡(병렬,파티션,플로우 방식 등)하게도 구성할 수 있다.
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/jobHeirarchyWithSteps_20170118.png)  
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/jobHeirarchyWithSteps_20170118.png)
   
   
 - #### Step Execution
@@ -52,7 +52,7 @@
 - #### Chunk-Oriented Processing
 Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'Chunk'를 만든 후 한번에 쓰는 방식이다. 
 
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/chunk-oriented-processing_20170118.png)  
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/chunk-oriented-processing_20170118.png)
 > Chunk 단위는 트랜잭션 Commit 단위
 
 - #### Item Reader
