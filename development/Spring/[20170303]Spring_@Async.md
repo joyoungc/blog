@@ -30,8 +30,9 @@
  * async 메소드 실행
  */
 @Override
-public String selectStatisticsDataExcel(RequestStatistics requestStatistics, Pageable pageable, HttpServletResponse response) {
-		
+public String selectStatisticsDataExcel(RequestStatistics requestStatistics, 
+Pageable pageable, HttpServletResponse response) {
+
 	logger.info("===== Start Excel Data [ selectStatisticsDataExcel ] ");
 		
 	String fileName = "data_" + DateTime.now().toString("yyyyMMddHHmmssSSS") + ".xlsx";
@@ -45,16 +46,17 @@ public String selectStatisticsDataExcel(RequestStatistics requestStatistics, Pag
 #### AsyncService.java
 ```java
 @Async
-public Future<String> asyncMakeBaseRawDataExcel(RequestStatistics requestStatistics, Pageable pageable, String fileName) {
-		
+public Future<String> asyncMakeBaseRawDataExcel(RequestStatistics requestStatistics,
+ Pageable pageable, String fileName) {
+
 	SXSSFWorkbook workbook = new SXSSFWorkbook(100);
 
-    /*........ 엑셀파일 생성 ........*/
+	/*........ 엑셀파일 생성 ........*/
 		
 	logger.info("===== End Excel Data [ getStatisticsBaseDataExcel ] ");
 	String result = "COMPLETE";
 		
-    // 엑셀 파일 생성이 완료되면 Future 객체를 이용하여 성공여부 return
-    return new AsyncResult<String>(result);	
+	// 엑셀 파일 생성이 완료되면 Future 객체를 이용하여 성공여부 return
+	return new AsyncResult<String>(result);	
 }
 ```    
