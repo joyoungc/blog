@@ -20,7 +20,7 @@ author: Joyoungc
 
 
 
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/spring-batch-reference-model_20170118.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/spring-batch-reference-model_20170118.png)
 
 ### 주요개념
 - #### Job
