@@ -37,7 +37,7 @@ public static void main(String[] args) {
         }
 
         // Pattern 4 : Java 8 forEach를 이용 (2017-07-25 추가)
-        items.forEach((k,v)->System.out.println("key : " + k + " , value : " + v) );
+        map.forEach((k,v)->System.out.println("key : " + k + " , value : " + v) );
 
 }
 ```
