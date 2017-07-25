@@ -129,6 +129,7 @@ Step 아이디 | {명사}Step
 
 ### 배치작업 파일 생성
 아래 형식의 xml 파일을 생성한다. (위치 및 파일 이름은 [2.개발표준](#springbatch2) 참고)
+
 ```xml
 <beans:beans xmlns="http://www.springframework.org/schema/batch"
      xmlns:beans="http://www.springframework.org/schema/beans"
@@ -247,6 +248,7 @@ Step 내에서 실행되는 ItemReader, ItemWriter, ItemProcessor와 CustomTaskl
 
 ### ItemReader
 처리대상의 데이터를 한건씩 리턴하여 다 소모될때까지 수행되는 클래스 
+
 ```java
 @Component  <-- (1)
 @Scope("step")  <-- (2)
@@ -261,6 +263,7 @@ public class SampleItemReader implements ItemStreamReader<CodeGroup> <-- (3) {
     void close() throws ItemStreamException {}    
 }
 ```
+
 >(1) 스프링 빈으로 등록하기 위해 설정
 
 >(2) 스프링 빈의 범위를 step으로 설정
@@ -319,6 +322,7 @@ public class SampleItemProcessor implements ItemProcessor<CodeGroup, ResultCodeG
         return item;
     }
 }
+
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
 
