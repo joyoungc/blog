@@ -19,14 +19,13 @@ author: Joyoungc
 - 관리기능 (로깅/추적, 통계, 모니터링)
 
 
-
 ![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/spring-batch-reference-model_20170118.png)
 
 ### 주요개념
 - #### Job
   - 하나의 배치작업을 정의하는 개념
   - Step의 집합
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/job-heirarchy_20170118.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/job-heirarchy_20170118.png)
 
 
 - #### Job Instance
@@ -41,12 +40,12 @@ author: Joyoungc
 - #### Job Parameters
   - Job을 시작하는데 사용되는 파라미터의 집합 (Map 형식)
   - JobInstance = Job + JobParameters
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/job-stereotypes-parameters_20170118.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/job-stereotypes-parameters_20170118.png)
   
 - #### Step
   - 배치 작업(Job)에 대한 순차적인 처리 단계를 의미함
   - 단순하거나 복잡(병렬,파티션,플로우 방식 등)하게도 구성할 수 있다.
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/jobHeirarchyWithSteps_20170118.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/jobHeirarchyWithSteps_20170118.png)
   
   
 - #### Step Execution
@@ -61,7 +60,7 @@ author: Joyoungc
 - #### Chunk-Oriented Processing
 Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'Chunk'를 만든 후 한번에 쓰는 방식이다. 
 
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/chunk-oriented-processing_20170118.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/chunk-oriented-processing_20170118.png)
 > Chunk 단위는 트랜잭션 Commit 단위
 
 - #### Item Reader
@@ -149,7 +148,7 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 ### Step 흐름 유형
 - Sequential Flow : Step을 정해진 순서대로 실행함
 
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/sequential-flow_20170206.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/sequential-flow_20170206.png)
 
 ```xml
 <job id="job">
@@ -160,7 +159,7 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 ```
 
 - Conditional Flow : StepExecution 내의 ExitStatus 값을 이용하여 흐름을 분기 실행함
-![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html](./images/Conditional-Flow_20170206.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/Conditional-Flow_20170206.png)
 
 ```xml
 <job id="job">
@@ -174,6 +173,7 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 ```
 
 - Split Flow : 흐름을 분할하고 병행 실행해야 하는 흐름
+
 ```xml
 <split id="split1" next="step4">
     <flow>
@@ -189,23 +189,18 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 
 >(1) Job 정의 
  - id : Job아이디
- - restartable : Job에 대해서 재시작 가능 여부(default : true)
- 
+ - restartable : Job에 대해서 재시작 가능 여부(default : true) 
 >(2) Step 정의
  - id : Step의 아이디
- - next : 다음에 실행되어야 하는 Step의 아이디 (Sequential Flow인 경우에 한하여 설정함)
- 
+ - next : 다음에 실행되어야 하는 Step의 아이디 (Sequential Flow인 경우에 한하여 설정함) 
 >(3) ExitStatus 값에 따라서 분기 실행되어야 하는 Step 정의 
  - on : ExitStatus 값
- - to : 다음에 실행되어야 하는 Step
- 
+ - to : 다음에 실행되어야 하는 Step 
 >(4) Job 실행 중지 정의 (ExitStatus에 따라서 결정)
  - on : ExitStatus 값
  - restart : Job을 재시작하는 경우 실행되는 Step
-
 >(5) Job 실행 완료 정의 (ExitStatus에 따라서 결정)
- - on : ExitStatus값
- 
+ - on : ExitStatus값 
 >(6) Job 실행 실패 (ExitStatus에 따라서 결정)
  - on : ExitStatus값
  
@@ -226,15 +221,13 @@ Step의 Tasklet 종류와 설정
 </job>
 ```
 >(1) ItemReader (필수)
-
 >(2) ItemProcessor (옵션)
-
 >(3) ItemWriter (필수)
-
 >(4) commit-interval - transaction commit 크기
 
 ### 개발자 정의 Tasklet
 개발자의 필요에 의해서 만들어진 Tasklet을 실행하도록 설정함
+
 ```xml
 <step id="step1">
     <tasklet ref="myTasklet"/>
@@ -279,6 +272,7 @@ public class SampleItemReader implements ItemStreamReader<CodeGroup> <-- (3) {
 
 ### ItemWriter
 ItemWriter는 대상 타입에 관계없이 한번에 항목의 묶음(Chunk)을 쓰는 행위에 대한 클래스
+
 ```java
 @Component  <-- (1)
 @Scope("step")  <-- (2)
@@ -293,25 +287,18 @@ public class SampleItemWriter implements ItemStreamWriter<ResultCodeGroup> <-- (
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
-
 >(2) 스프링 빈의 범위를 step으로 설정
-
 >(3) org.springframework.batch.item.ItemStreamWriter&lt;T&gt; 인터페이스를 구현
-
 >(4) write() 메서드 구현, 파라미터로 넘어온 결과를 저장함
-
 >(5) ItemWriter가 처음 동작할때 설정
-
 >(6) ItemWriter가 write 메서드가 실행된 이후 실행
-
 >(7) ItemWriter가 종료될때 실행
-
 >※ 스프링배치에서 미리 구현된 다양한 ItemWriter 구현체가 존재함. (http://docs.spring.io/spring-batch/trunk/reference/html/listOfReadersAndWriters.html#itemWritersAppendix)
-
 
 
 ### ItemProcessor
 ItemReader가 리턴한 한 건의 데이터에 대해서 비즈니스 로직을 실행하여 그 결과를 리턴하는 클래스
+
 ```java
 @Component  <-- (1)
 @Scope("step")  <-- (2)
@@ -322,20 +309,17 @@ public class SampleItemProcessor implements ItemProcessor<CodeGroup, ResultCodeG
         return item;
     }
 }
-
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
-
 >(2) 스프링 빈의 범위를 step으로 설정
-
 >(3) org.springframework.batch.item.ItemProcessor&lt;T&gt; 인터페이스를 구현
-
 >(4) process 메서드 구현, 파라미터로 넘어온 값을 처리하여 리턴
 
 
 ### ItemStream
 재시작 가능한 Job을 구성하기 위해서 필요한 메서드의 인터페이스, 재시작에 필요한 정보를 ExecutionContext에 넣기 위해서 선언됨.
 ItemReader, ItemWriter에 함께 구현하여 ItemReader, ItemWirter의 구현클래스를 만든다. 
+
 ```java
 public interface ItemStream {
     void open(ExecutionContext executionContext) throws ItemStreamException {}  <-- (1)
@@ -344,9 +328,7 @@ public interface ItemStream {
 }
 ```
 >(1) ItemReader, ItemWriter가 생성된 이후 실행됨
-
 >(2) ItemReader.read(), ItemWriter.wirte() 메서드가 실행된 이후 실행됨
-
 >(3) ItemReader, ItemWriter의 모든 실행이 완료된 이후에 실행됨
 
 
@@ -365,13 +347,9 @@ public class CustomTasklet implements Tasklet {  <-- (3)
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
-
 >(2) 스프링 빈의 범위를 step으로 설정
-
 >(3) org.springframework.batch.core.step.tasklet.Tasklet 인터페이스를 구현
-
 >(4) execute메서드를 구현, 비즈니스 로직을 실행하는 코드를 작성, 리턴값으로 RepeatStatus.FINISHED를 사용해야 함
-
 
 
 ## 6. 테스트
@@ -407,20 +385,15 @@ public class SampleTest {
 }
 ```
 >(1) 테스트 대상 Job 설정파일을 추가해야 함
-
 >(2) Job 실행시 필요한 파라미터들을 세팅
-
 >(3) Job을 실행
-
 >(4) step별로 테스트 필요시 실행
-
 >(5) Job이 정상적으로 종료되었는지 확인
-
 
 
 ## 7. 스프링 배치 테이블 정보
 영속성을 가져야 하는 실행정보들을 저장하는 테이블
 
-![http://docs.spring.io/spring-batch/trunk/reference/html/metaDataSchema.html](./images/meta-data-erd_20170207.png)
+![http://docs.spring.io/spring-batch/trunk/reference/html/metaDataSchema.html]({{ site.url }}/images/meta-data-erd_20170207.png)
 >※ 테이블 상세정보 : http://docs.spring.io/spring-batch/trunk/reference/html/metaDataSchema.html
 
