@@ -7,7 +7,7 @@
 
 # Site settings
 title: Joyoungc
-brief-intro: Front-end Developer
+brief-intro: Back-end Developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://Joyoungc.github.io" # the base hostname & protocol for your site
 
@@ -18,24 +18,18 @@ twitter_username:
 facebook_username: 
 github_username:  Joyoungc
 email: 
-weibo_username: 
-zhihu_username: 
 linkedIn_username: 
-dribbble_username:
 
 description_footer: footer!!
 
 # comments
 # two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: #hygblog
 disqus_shortname: joyoungc
 
-# statistic analysis 统计代码
+# statistic analysis
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
 # hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
 # xxxxx字符串
-baidu_tongji_id: 
 google_analytics_id:  # google 分析追踪id
 
 # Build settings

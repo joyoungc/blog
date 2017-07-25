@@ -1,4 +1,11 @@
-# Spring 비동기 Service 구현 방법
+---
+layout: post
+title:  "Spring 비동기 Service 구현 방법"
+date:   2017-03-03 14:00:00
+categories: spring
+tags: spring batch async java
+author: Joyoungc
+---
 
 ## @Async
 
@@ -12,6 +19,7 @@
 - 비동기 설정을 해줘야 함 
   1. annotation : @EnableAsync
   2. xml 설정 : task 네임스페이스를 이용
+
 ```xml
 	<task:annotation-driven executor="taskExecutor" />		 
 	<task:executor id="taskExecutor" pool-size="10" />
@@ -25,6 +33,7 @@
 ### 예제
 
 #### StatisticsDownloadServiceImpl.java
+
 ```java
 /***
  * async 메소드 실행
@@ -43,7 +52,9 @@ Pageable pageable, HttpServletResponse response) {
 	return fileName;		
 }
 ```
+
 #### AsyncService.java
+
 ```java
 @Async
 public Future<String> asyncMakeBaseRawDataExcel(RequestStatistics requestStatistics,

@@ -1,4 +1,11 @@
-## [Tomcat] 톰캣에 파일 업로드 시 502 Bad Gateway 발생할때 고려할 점
+---
+layout: post
+title:  "[Tomcat] 톰캣에 파일 업로드 시 502 Bad Gateway 발생할때 고려할 점"
+date:   2017-01-17 14:00:00
+categories: tools
+tags: tomcat maxPostSize was
+author: Joyoungc
+---
 
 보통 파일 업로드 시 `multipart/form-data` 로 POST 방식으로 전송을 하게 되는데 
 
