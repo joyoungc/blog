@@ -188,20 +188,25 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 <step id="step4" parent="s4"/>
 ```
 
->(1) Job 정의 
+>1. Job 정의 
  - id : Job아이디
  - restartable : Job에 대해서 재시작 가능 여부(default : true) 
+
 >(2) Step 정의
  - id : Step의 아이디
  - next : 다음에 실행되어야 하는 Step의 아이디 (Sequential Flow인 경우에 한하여 설정함) 
+
 >(3) ExitStatus 값에 따라서 분기 실행되어야 하는 Step 정의 
  - on : ExitStatus 값
  - to : 다음에 실행되어야 하는 Step 
+
 >(4) Job 실행 중지 정의 (ExitStatus에 따라서 결정)
  - on : ExitStatus 값
  - restart : Job을 재시작하는 경우 실행되는 Step
+
 >(5) Job 실행 완료 정의 (ExitStatus에 따라서 결정)
  - on : ExitStatus값 
+
 >(6) Job 실행 실패 (ExitStatus에 따라서 결정)
  - on : ExitStatus값
  
@@ -222,8 +227,11 @@ Step의 Tasklet 종류와 설정
 </job>
 ```
 >(1) ItemReader (필수)
+
 >(2) ItemProcessor (옵션)
+
 >(3) ItemWriter (필수)
+
 >(4) commit-interval - transaction commit 크기
 
 ### 개발자 정의 Tasklet
@@ -288,12 +296,19 @@ public class SampleItemWriter implements ItemStreamWriter<ResultCodeGroup> <-- (
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
+
 >(2) 스프링 빈의 범위를 step으로 설정
+
 >(3) org.springframework.batch.item.ItemStreamWriter&lt;T&gt; 인터페이스를 구현
+
 >(4) write() 메서드 구현, 파라미터로 넘어온 결과를 저장함
+
 >(5) ItemWriter가 처음 동작할때 설정
+
 >(6) ItemWriter가 write 메서드가 실행된 이후 실행
+
 >(7) ItemWriter가 종료될때 실행
+
 >※ 스프링배치에서 미리 구현된 다양한 ItemWriter 구현체가 존재함. (http://docs.spring.io/spring-batch/trunk/reference/html/listOfReadersAndWriters.html#itemWritersAppendix)
 
 
@@ -312,8 +327,11 @@ public class SampleItemProcessor implements ItemProcessor<CodeGroup, ResultCodeG
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
+
 >(2) 스프링 빈의 범위를 step으로 설정
+
 >(3) org.springframework.batch.item.ItemProcessor&lt;T&gt; 인터페이스를 구현
+
 >(4) process 메서드 구현, 파라미터로 넘어온 값을 처리하여 리턴
 
 
@@ -329,7 +347,9 @@ public interface ItemStream {
 }
 ```
 >(1) ItemReader, ItemWriter가 생성된 이후 실행됨
+
 >(2) ItemReader.read(), ItemWriter.wirte() 메서드가 실행된 이후 실행됨
+
 >(3) ItemReader, ItemWriter의 모든 실행이 완료된 이후에 실행됨
 
 
@@ -348,8 +368,11 @@ public class CustomTasklet implements Tasklet {  <-- (3)
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
+
 >(2) 스프링 빈의 범위를 step으로 설정
+
 >(3) org.springframework.batch.core.step.tasklet.Tasklet 인터페이스를 구현
+
 >(4) execute메서드를 구현, 비즈니스 로직을 실행하는 코드를 작성, 리턴값으로 RepeatStatus.FINISHED를 사용해야 함
 
 
@@ -386,9 +409,13 @@ public class SampleTest {
 }
 ```
 >(1) 테스트 대상 Job 설정파일을 추가해야 함
+
 >(2) Job 실행시 필요한 파라미터들을 세팅
+
 >(3) Job을 실행
+
 >(4) step별로 테스트 필요시 실행
+
 >(5) Job이 정상적으로 종료되었는지 확인
 
 
