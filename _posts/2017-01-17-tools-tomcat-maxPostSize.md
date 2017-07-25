@@ -32,8 +32,5 @@ response from an upstream server.
 아무것도 설정되어 있지 않을 때 default 값은 2MB(2097152byte)이다. 
 
 ```xml
-<Connector port="80" protocol="HTTP/1.1"
-           connectionTimeout="20000"
-           redirectPort="8443"
-            maxPostSize="5242880" />
+<Connector port="80" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" maxPostSize="5242880" />
 ```

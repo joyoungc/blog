@@ -424,4 +424,3 @@ public class SampleTest {
 
 ![http://docs.spring.io/spring-batch/trunk/reference/html/metaDataSchema.html]({{ site.url }}/images/meta-data-erd_20170207.png)
 >※ 테이블 상세정보 : http://docs.spring.io/spring-batch/trunk/reference/html/metaDataSchema.html
-
