@@ -109,17 +109,18 @@ Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'C
 ```
 
 ### 명명 규칙
-대상 | 표준
------------- | -------------
-Scheduler 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.scheduler.{배치업무명}Scheduler.java
-Job 설정 파일 | config/batch/job/{업무카테고리}/job-{배치업무명}.xml
-Tasklet 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.tasklet.{명사}Tasklet.java
-ItemReader 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemReader.java
-ItemWriter 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemWriter.java
-ItemProcessor 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemProcessor.java
-Job 테스트 클래스 | {프로젝트 패키지}.{업무카테고리}.{Job}Test.java
-Job 아이디 | {배치업무명}Job
-Step 아이디 | {명사}Step
+
+| 대상 | 표준 |
+| ----- | ----- |
+| Scheduler 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.scheduler.{배치업무명}Scheduler.java |
+| Job 설정 파일 | config/batch/job/{업무카테고리}/job-{배치업무명}.xml |
+| Tasklet 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.tasklet.{명사}Tasklet.java |
+| ItemReader 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemReader.java |
+| ItemWriter 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemWriter.java |
+| ItemProcessor 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.item.{Step아이디}ItemProcessor.java |
+| Job 테스트 클래스 | {프로젝트 패키지}.{업무카테고리}.{Job}Test.java |
+| Job 아이디 | {배치업무명}Job |
+| Step 아이디 | {명사}Step |
 
 
 
