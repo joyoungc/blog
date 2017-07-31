@@ -77,7 +77,7 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 
 | Regex Code | Description |
 | ----- | ----- |
-| . | Any character |
+| . | 모든 문자(Any character) |
 | \d | A digit : [0-9]  |
 | \D | A non-digit : [^0-9]  |
 | \s | A whitespace character : [ \t\n\x0B\f\r] |
