@@ -92,7 +92,8 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | XY | X followed by Y |
 | XY | Either X or Y |
 | (X) | X, as a capturing group^⑴^  |
-> (1) 괄호 안의 정규식을 Group화 할 수 있다. Group 0 은 언제나 전체 표현식을 나타낸다. 
+
+> (1) 괄호 안의 정규식을 Group화 할 수 있다. Group 0 은 언제나 전체 표현식을 나타낸다.
 
 #### Special constructs (named-capturing and non-capturing)
 
