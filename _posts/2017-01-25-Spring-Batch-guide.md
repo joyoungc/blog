@@ -41,47 +41,47 @@ author: Joyoungc
   - Job을 시작하는데 사용되는 파라미터의 집합 (Map 형식)
   - JobInstance = Job + JobParameters
 ![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/job-stereotypes-parameters_20170118.png)
-  
+
 - #### Step
   - 배치 작업(Job)에 대한 순차적인 처리 단계를 의미함
   - 단순하거나 복잡(병렬,파티션,플로우 방식 등)하게도 구성할 수 있다.
 ![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/jobHeirarchyWithSteps_20170118.png)
-  
-  
+
+
 - #### Step Execution
   - 한번의 Step 실행 시도를 의미함
   - Step이 실행될 때, 새로운 StepExecution이 생성된다.
-  
+
 - #### Tasklet
   - Step에서 실행되는 작업을 의미함
   - Chunk Oriented Processing Tasklet을 기본으로 제공
   - Tasklet을 별도로 구현하여 사용하는 것이 가능
-  
+
 - #### Chunk-Oriented Processing
-Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'Chunk'를 만든 후 한번에 쓰는 방식이다. 
+Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'Chunk'를 만든 후 한번에 쓰는 방식이다.
 
 ![http://docs.spring.io/spring-batch/trunk/reference/html/domain.html]({{ site.url }}/images/chunk-oriented-processing_20170118.png)
 > Chunk 단위는 트랜잭션 Commit 단위
 
 - #### Item Reader
   - Step의 처리대상이 되는 데이터를 조회하는 역할
-  
+
 - #### Item Writer
   - Step의 처리결과를 기록(저장)하는 역할
-  
+
 - #### Item Processor
-  - Step의 ItemReader를 통해서 전달된 하나의 아이템에 대한 비즈니스로직을 처리하는 역할 
+  - Step의 ItemReader를 통해서 전달된 하나의 아이템에 대한 비즈니스로직을 처리하는 역할
 
 - #### Job Launcher
   - JobParameters를 이용하여 Job을 시작함
   - 실행 결과로 JobRepository와 실행 중인 Job에서 JobExecution 정보를 제공함
-  
+
 - #### Job Repository
   - Job의 실행정보(JobInstance, JobExecution, JobExecutionParams, JobExecutionContext, StepExecution, StepExecutionContext)에 대한 CRUD 오퍼레이션 처리를 담당
-  
+
 - #### Execution Context
   - Step, Job Execution 구동 중 발생하는 정보를 저장하는 컬렉션
-  - Job 재시작시에 사용되는 정보를 담는다. 
+  - Job 재시작시에 사용되는 정보를 담는다.
   - Json 형태로 저장이 되면 최대 2500 byte를 저장하므로 단순한 값만 저장한다.   
 
 ## <a name="springbatch2"></a>2. 개발 표준
@@ -110,7 +110,7 @@ Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'C
 
 ### 명명 규칙
 
-| 대상 | 표준 |
+| 대  상 | 표  준 |
 | ----- | ----- |
 | Scheduler 클래스 | {프로젝트 패키지}.{업무카테고리}.batch.scheduler.{배치업무명}Scheduler.java |
 | Job 설정 파일 | config/batch/job/{업무카테고리}/job-{배치업무명}.xml |
@@ -139,12 +139,12 @@ Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'C
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/batch
            http://www.springframework.org/schema/batch/spring-batch-2.2.xsd">
-           
+
 </beans:beans>
 ```
 
 ### Job 정의
-Job에 대한 아이디와 Step 처리 흐름을 정의한다. 
+Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 
 ### Step 흐름 유형
 - Sequential Flow : Step을 정해진 순서대로 실행함
@@ -188,29 +188,29 @@ Job에 대한 아이디와 Step 처리 흐름을 정의한다.
 <step id="step4" parent="s4"/>
 ```
 
->1. Job 정의 
- - id : Job아이디
- - restartable : Job에 대해서 재시작 가능 여부(default : true) 
-
+>(1). Job 정의
+> - id : Job아이디
+> - restartable : Job에 대해서 재시작 가능 여부(default : true)
+>
 >(2) Step 정의
- - id : Step의 아이디
- - next : 다음에 실행되어야 하는 Step의 아이디 (Sequential Flow인 경우에 한하여 설정함) 
-
->(3) ExitStatus 값에 따라서 분기 실행되어야 하는 Step 정의 
- - on : ExitStatus 값
- - to : 다음에 실행되어야 하는 Step 
-
+> - id : Step의 아이디
+> - next : 다음에 실행되어야 하는 Step의 아이디 (Sequential Flow인 경우에 한하여 설정함)
+>
+>(3) ExitStatus 값에 따라서 분기 실행되어야 하는 Step 정의
+> - on : ExitStatus 값
+> - to : 다음에 실행되어야 하는 Step
+>
 >(4) Job 실행 중지 정의 (ExitStatus에 따라서 결정)
- - on : ExitStatus 값
- - restart : Job을 재시작하는 경우 실행되는 Step
-
+> - on : ExitStatus 값
+> - restart : Job을 재시작하는 경우 실행되는 Step
+>
 >(5) Job 실행 완료 정의 (ExitStatus에 따라서 결정)
- - on : ExitStatus값 
-
+> - on : ExitStatus값
+>
 >(6) Job 실행 실패 (ExitStatus에 따라서 결정)
- - on : ExitStatus값
- 
- 
+> - on : ExitStatus값
+
+
 ## 4. Step 정의 절차
 Step의 Tasklet 종류와 설정
 
@@ -249,14 +249,14 @@ Step의 Tasklet 종류와 설정
 Step 내에서 실행되는 ItemReader, ItemWriter, ItemProcessor와 CustomTasklet 개발방법 설명
 
 ### ItemReader
-처리대상의 데이터를 한건씩 리턴하여 다 소모될때까지 수행되는 클래스 
+처리대상의 데이터를 한건씩 리턴하여 다 소모될때까지 수행되는 클래스
 
 ```java
 @Component  <-- (1)
 @Scope("step")  <-- (2)
 public class SampleItemReader implements ItemStreamReader<CodeGroup> <-- (3) {
     @Override
-    public CodeGroup read() throws Exception, UnexpectedInputException, ParseException, 
+    public CodeGroup read() throws Exception, UnexpectedInputException, ParseException,
     NonTransientResourceException { <-- (4)
         return new CodeGroup();
     }
@@ -292,7 +292,7 @@ public class SampleItemWriter implements ItemStreamWriter<ResultCodeGroup> <-- (
     }
     void open(ExecutionContext executionContext) throws ItemStreamException {} <-- (5)
     void update(ExecutionContext executionContext) throws ItemStreamException {} <-- (6)
-    void close() throws ItemStreamException {}   <-- (7) 
+    void close() throws ItemStreamException {}   <-- (7)
 }
 ```
 >(1) 스프링 빈으로 등록하기 위해 설정
@@ -337,13 +337,13 @@ public class SampleItemProcessor implements ItemProcessor<CodeGroup, ResultCodeG
 
 ### ItemStream
 재시작 가능한 Job을 구성하기 위해서 필요한 메서드의 인터페이스, 재시작에 필요한 정보를 ExecutionContext에 넣기 위해서 선언됨.
-ItemReader, ItemWriter에 함께 구현하여 ItemReader, ItemWirter의 구현클래스를 만든다. 
+ItemReader, ItemWriter에 함께 구현하여 ItemReader, ItemWirter의 구현클래스를 만든다.
 
 ```java
 public interface ItemStream {
     void open(ExecutionContext executionContext) throws ItemStreamException {}  <-- (1)
     void update(ExecutionContext executionContext) throws ItemStreamException {}    <-- (2)
-    void close() throws ItemStreamException {}  <-- (3) 
+    void close() throws ItemStreamException {}  <-- (3)
 }
 ```
 >(1) ItemReader, ItemWriter가 생성된 이후 실행됨
@@ -392,9 +392,9 @@ public class SampleTest {
 
     @Test
     public void launchJob() throws Exception {
-    
+
         JobParametersBuilder builder = new JobParametersBuilder(); <-- (2)
-		
+
 		builder.addString("startDate", "2016-09-01 00:00");
 		builder.addString("endDate", "2016-09-19 19:00");
 		builder.addLong("currentTime", System.currentTimeMillis());
