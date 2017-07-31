@@ -30,7 +30,7 @@ System.out.println(example); // output : mask****
 String regexMobilePhoneNumberWithDash = "^(01[016789]{1})-([0-9]{3,4})-([0-9]{4})$";
 
 // dash 미포함 번호에 대한
-String regexMobilePhoneNumberNoDash = "^(01[016789]{1})([0-9]{3,4})([0-9]{4})$"; 정규식
+String regexMobilePhoneNumberNoDash = "^(01[016789]{1})([0-9]{3,4})([0-9]{4})$";
 
 String test1 = "010-1234-5678";
 String test2 = "01056781234";
@@ -73,7 +73,8 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 ```
 
 ## 용어정리
-###### Predefined character classes
+#### Predefined character classes
+
 | Regex Code | Description |
 | ----- | ----- |
 | . | Any character |
@@ -84,8 +85,7 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | \w | A word character : [a-zA-Z_0-9] |
 | \W | A non-word character : [^\w] |
 
-<br/>
-###### Logical operators
+#### Logical operators
 
 | Regex Code | Description |
 | ----- | ----- |
@@ -94,8 +94,8 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | (X) | X, as a capturing group^⑴^ |
 > (1) 괄호 안의 정규식을 Group화 할 수 있다. Group 0 은 언제나 전체 표현식을 나타낸다.
 
-<br/>
-###### Special constructs (named-capturing and non-capturing)
+#### Special constructs (named-capturing and non-capturing)
+
 | Regex Code | Description |
 | ----- | ----- |
 | (?:X) | X 정규식이 일치하는 것에 대해  capturing group에서 제외(as a non-capturing group) |
@@ -104,8 +104,8 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | (?<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
  > (1)  Java7 부터 지원
 
-<br/>
-###### Quantifiers
+
+#### Quantifiers
 http://docs.oracle.com/javase/tutorial/essential/regex/quant.html
 
 | Greedy | Reluctant | Possessive | Meaning |
