@@ -90,7 +90,7 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | Regex Code | Description |
 | ----- | ----- |
 | XY | X followed by Y |
-| X|Y | Either X or Y |
+| X\|Y | Either X or Y |
 | (X) | X, as a capturing group^⑴^ |
 > (1) 괄호 안의 정규식을 Group화 할 수 있다. Group 0 은 언제나 전체 표현식을 나타낸다.
 
@@ -99,9 +99,9 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | Regex Code | Description |
 | ----- | ----- |
 | (?:X) | X 정규식이 일치하는 것에 대해  capturing group에서 제외(as a non-capturing group) |
-| (?<name>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음.^⑴^  (X, as a named-capturing group) |
-| (?<=X)Y | X 정규식이 일치한다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width positive lookbehind) |
-| (?<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
+| (?\<name\>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음.^⑴^  (X, as a named-capturing group) |
+| (?\<=X)Y | X 정규식이 일치한다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width positive lookbehind) |
+| (?\<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
  > (1)  Java7 부터 지원
 
 
