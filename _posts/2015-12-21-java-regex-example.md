@@ -100,7 +100,7 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | Regex Code | Description |
 | ----- | ----- |
 | (?:X) | X 정규식이 일치하는 것에 대해  capturing group에서 제외(as a non-capturing group) |
-| (?<name>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음. <sup>⑴</sup>  (X, as a named-capturing group) |
+| (?<name\>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음. <sup>⑴</sup>  (X, as a named-capturing group) |
 | (?<=X)Y | X 정규식이 일치한다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width positive lookbehind) |
 | (?<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
 
