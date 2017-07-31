@@ -100,14 +100,14 @@ System.out.println("## MobilePhoneNumberNoDash is : " + m2.matches()); // output
 | Regex Code | Description |
 | ----- | ----- |
 | (?:X) | X 정규식이 일치하는 것에 대해  capturing group에서 제외(as a non-capturing group) |
-| (?\<name\>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음. <sup>⑴</sup>  (X, as a named-capturing group) |
-| (?\<=X)Y | X 정규식이 일치한다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width positive lookbehind) |
-| (?\<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
+| (?<name>X) | X 정규식이 일치하는 capturing group에 name을 부여할 수 있음. <sup>⑴</sup>  (X, as a named-capturing group) |
+| (?<=X)Y | X 정규식이 일치한다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width positive lookbehind) |
+| (?<!X)Y | X 정규식이 일치하지 않는다면 뒤에 나오는 Y 정규식에 일치하는 데이터를 반환 (X, via zero-width negative lookbehind) |
 
  > (1)  Java7 부터 지원
 
 #### Quantifiers
-http://docs.oracle.com/javase/tutorial/essential/regex/quant.html
+[http://docs.oracle.com/javase/tutorial/essential/regex/quant.html](http://docs.oracle.com/javase/tutorial/essential/regex/quant.html)
 
 | Greedy | Reluctant | Possessive | Meaning |
 | ----- | ----- | ----- | ----- |
@@ -125,5 +125,5 @@ http://docs.oracle.com/javase/tutorial/essential/regex/quant.html
 
 ## 유용한 사이트
 
-1. http://www.regexplanet.com (각 언어에 대한 정규식 테스트 사이트)
-2. https://www.slideshare.net/ibare/ss-39274621
+1. [http://www.regexplanet.com](http://www.regexplanet.com) (각 언어에 대한 정규식 테스트 사이트)
+2. [https://www.slideshare.net/ibare/ss-39274621](https://www.slideshare.net/ibare/ss-39274621)
