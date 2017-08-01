@@ -9,7 +9,7 @@
 title: Joyoungc
 brief-intro: Back-end Developer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://Joyoungc.github.io" # the base hostname & protocol for your site
+url: "https://joyoungc.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
@@ -20,7 +20,7 @@ github_username:  Joyoungc
 email:
 linkedIn_username:
 
-description_footer: footer!!
+description_footer:
 
 # comments
 # two ways to comment, only choose one, and use your own short name
@@ -38,7 +38,7 @@ kramdown:
   auto_ids:       true
   entity_output:  as_char
   toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo  
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
   hard_wrap:      false
   footnote_nr:    1
 

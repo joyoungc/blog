@@ -19,9 +19,7 @@ String regexMasking = "(?<=.{4}).";
 String example = "mask1234";
 
 // lookbehind 정규식을 사용하여 앞의 4자리 문자를 제외한 나머지 문자들을 * 처리한다.
-example = example.replaceAll(regexMasking, "*");
-
-System.out.println(example); // output : mask****
+System.out.println(example.replaceAll(regexMasking, "*")); // output : mask****
 ```
 
 #### 2. 전화 번호 유효성 체크
