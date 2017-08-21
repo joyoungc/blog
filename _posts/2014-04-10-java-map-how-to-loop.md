@@ -10,10 +10,8 @@ author: Joyoungc
 ## Iterator, for, while, forEach
 
 ```java
-public static void main(String[] args) {
-
         Map<string, string> map = new HashMap<string, string>();
-         
+
         map.put("key1", "value1");
         map.put("key2", "value2");
         map.put("key3", "value3");
@@ -28,7 +26,7 @@ public static void main(String[] args) {
         for( String key : map.keySet() ){
             System.out.println( "key : " + key + ", value : " +  map.get(key)) );
         }
-         
+
         // Pattern 3 : Iterator를 이용한  While-Loops
         Iterator<string> keys = map.keySet().iterator();
         while( keys.hasNext() ){
@@ -38,6 +36,4 @@ public static void main(String[] args) {
 
         // Pattern 4 : Java 8 forEach를 이용 (2017-07-25 추가)
         map.forEach((k,v)->System.out.println("key : " + k + " , value : " + v) );
-
-}
 ```
