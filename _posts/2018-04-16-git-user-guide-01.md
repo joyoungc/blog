@@ -159,6 +159,7 @@ pull 을 실행하면, 원격 저장소에서 최신 변경 이력을 다운로�
 
 ![이미지](../images/git-user-guide-020.png)
 
+
 [ 프로젝트 우클릭 > Team > Pull ]을 클릭합니다. 
 
 ![이미지](../images/git-user-guide-022.png)
@@ -167,8 +168,7 @@ pull 을 실행하면, 원격 저장소에서 최신 변경 이력을 다운로�
 
 ![이미지](../images/git-user-guide-023.png)
 
-Commit 때와 같이 [ 프로젝트 우클릭 > Team > Show in History ] 에서 pull한 내용에 대해 이력이 추가되어 있는게 확인 가능합니다. 
-
+Commit 때와 같이 [ 프로젝트 우클릭 > Team > Show in History ] 에서 pull한 내용에 대해 이력이 추가되어 있는게 확인 가능합니다.
 
 
 ## 참고 사이트
