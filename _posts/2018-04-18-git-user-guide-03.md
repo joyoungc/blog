@@ -45,7 +45,7 @@ conflict 오류가 발생한 파일을 더블클릭하면 Source Compare 창이 
  ![이미지](../images/git-user-guide-107.png) 
 
    - 해당 파일을 commit하고 다시 pull을 받아 보도록 합니다. 
-     정상적으로 pull이 되면 해당 파일들이 merge가 되는 것을 확인할 수 있습니다. ~~하지만 대부분 conflict가 날것입니다.~~ 이럴경우 Case 3 참고.
+     정상적으로 pull이 되면 해당 파일들이 merge가 되는 것을 확인할 수 있습니다. ~~하지만 대부분 conflict가 날것입니다.~~ 이럴경우 [시나리오 #3] 참고.
 
 pull을 받기 전에는 로컬에서 수정된 파일을 로컬 리포지토리에 반영(Commit) 시켜 놓은 것이 이와 같은 오류를 방지하는 좋은 방법이 될 수 있습니다.
 
@@ -72,3 +72,22 @@ pull을 받기 전에는 로컬에서 수정된 파일을 로컬 리포지토리
   5. Commit (바로 원격 서버에 반영하려면 Commit and push)
 
 
+### 4. 개발자 A가 SampleOne.md 파일을 작업중 pull을 받았을때 Checkout conflict with files 에러발생
+
+- **Situation**
+  1. 작업중인(uncommitted changes) SampleOne.md 파일이 있습니다. 
+
+  2. 작업도중 Server에 반영된 소스를 Sync 하기 위해 master branch로부터 pull을 받습니다. 
+
+  3. "Checkout conflict with files: SampleOne.md" 라는 에러를 응답받았습니다. 
+
+  4. 작업중인 파일은 아직 Server에 반영하기는 무리가 있어서 push는 하기 싫지만 소스 Sync를 위해 pull은 받아야 되는 상황입니다. 
+
+- **Solution**
+  1. SampleOne.md 파일을 Staged Change(Add to index)를 하고 commit을 합니다. (commit and push가 아닙니다.)
+
+  2. 다시 pull을 받습니다. 
+
+  3. 만약 자동으로 merge가 된다면 Happy End~~!!
+
+  4. 다만 해당 파일이 제대로 merge가 안되고 Git conflict annotation(<<<<<<, =====, >>>>)이 추가되면서 Conflict가 난다면 [시나리오 #3] 과정을 진행해주시기 바랍니다.

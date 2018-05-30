@@ -128,7 +128,7 @@ Data를 한번에 하나씩 읽고 처리하며 트랜잭션 범위 내에서 'C
 스프링 배치에서 제공하는 xml문법에 따라 배치작업을 정의함. (annotation 방식은 차후 포스팅 예정)
 
 ### 배치작업 파일 생성
-아래 형식의 xml 파일을 생성한다. (위치 및 파일 이름은 [2.개발표준](#springbatch2) 참고)
+아래 형식의 xml 파일을 생성한다. (위치 및 파일 이름은 ![2.개발표준](#springbatch2) 참고)
 
 ```xml
 <beans:beans xmlns="http://www.springframework.org/schema/batch"
