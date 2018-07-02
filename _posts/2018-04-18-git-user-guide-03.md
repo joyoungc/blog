@@ -16,7 +16,7 @@ merge 작업은 충돌되는 파일이 없다면 자동으로 진행됩니다.
 
 ## 2. 개발자 A가 새로운 파일 생성 후 push 하였고, 개발자 B도 같은 이름의 파일을 생성하였지만  Commit은 하지 않았음.
 
-예를 들어 개발자 A가 MCG_CAMSINFS0140T07_IN.java, MCG_CAMSINFS0140T07_OUT.java 파일을 새로 생성 후 push까지 완료하였습니다.
+예를 들어 개발자 A가 SampleIn.java, SampleOut.java 파일을 새로 생성 후 push까지 완료하였습니다.
 
 개발자 B는 같은 이름의 파일들을 새로 생성만 하였습니다. (Commit하지 않은 Untracked file의 상태)
 > Untracked file의 의미는 Git에서 관리대상에 포함되지 않는다는 의미입니다. `인덱스에 등록` 또는 `Stage`가 안된 상태를 뜻합니다.
